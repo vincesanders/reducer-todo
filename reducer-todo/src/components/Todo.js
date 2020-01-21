@@ -1,10 +1,10 @@
-import React, { useRef, useReducer } from 'react';
-import todoReducer from '../reducers/todoReducer';
+import React, { useRef } from 'react';
+// import todoReducer from '../reducers/todoReducer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 
 const Todo = props =>  {
-    const [state, dispatch] = useReducer(todoReducer);
+    // const [state, dispatch] = useReducer(todoReducer);
 
     const icon = useRef();
     const rotateIn = (e) => {

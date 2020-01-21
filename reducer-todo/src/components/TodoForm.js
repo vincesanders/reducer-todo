@@ -1,5 +1,5 @@
-import React, { useReducer, useState } from 'react';
-import todoReducer from '../reducers/todoReducer';
+import React, { useState } from 'react';
+// import todoReducer from '../reducers/todoReducer';
 
 export default props => {
     // const [state, dispatch] = useReducer(todoReducer);
