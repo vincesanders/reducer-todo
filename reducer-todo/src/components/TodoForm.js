@@ -1,31 +1,24 @@
-import React from 'react';
+import React, { useReducer, useState } from 'react';
+import todoReducer from '../reducers/todoReducer';
 
-class TodoForm extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            task: ''
-        };
-    }
+export default () => {
+    const [state, dispatch] = useReducer(todoReducer)
+    const [task, setTask] = useState('')
 
-    handleSubmit = e => {
+    const handleSubmit = e => {
         //Add the task when you press enter.
         if (e.which === 13 && e.target.value !== '') {
             e.preventDefault();
-            this.props.addTask(this.state.task);
-            this.setState({ task: ''});
+            dispatch({type: 'ADD_TASK', payload: task});
+            setTask('')
         }
     }
 
-    handleChange = e => {
-        this.setState({ task: e.target.value });
+    const handleChange = e => {
+        setTask(e.target.value);
     }
 
-    render() {
-        return (
-            <input onKeyDown={this.handleSubmit} onChange={this.handleChange} type='test' placeholder='Add New Todo' value={this.state.task} />
-        );
-    }
+    return (
+        <input onKeyDown={handleSubmit} onChange={handleChange} type='test' placeholder='Add New Todo' value={task} />
+    );
 }
-
-export default TodoForm;
