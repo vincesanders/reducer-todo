@@ -22,7 +22,7 @@ const initialState = {
 }
 
 function App() {
-  const [state, dispatch] = useReducer(todoReducer, initialState)
+  const [state, dispatch] = useReducer(todoReducer, initialState);
   return (
     <div className='container' >
     <header>
@@ -30,8 +30,8 @@ function App() {
       {/* Add functionality to hide/show input when clicked (also change icon) */}
       <button id="toggleInputBtn"><FontAwesomeIcon icon={faPlus} /></button>
     </header>
-    <TodoForm />
-    <TodoList todoList={state.todoList} />
+    <TodoForm addTask={(task) => dispatch({type: 'ADD_TASK', payload: task})} />
+    <TodoList todoList={state.todoList} removeTask={id => dispatch({type: 'REMOVE_TASK', payload: id})} toggleCompleted={id => dispatch({type: 'TOGGLE_COMPLETE', payload: id})} />
     <button className='clearButton' onClick={() => dispatch({type: 'REMOVE_COMPLETED'})} >Clear Completed</button>
   </div>
   );

@@ -1,8 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useRef, useReducer } from 'react';
+import todoReducer from '../reducers/todoReducer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 
 const Todo = props =>  {
+    const [state, dispatch] = useReducer(todoReducer);
+
     const icon = useRef();
     const rotateIn = (e) => {
        icon.current.classList.remove('rotateOut');
@@ -15,6 +18,7 @@ const Todo = props =>  {
     const handleClick = e => {
         e.target.classList.toggle('done');
         props.toggleCompleted(props.id);
+        // dispatch({type: 'TOGGLE_COMPLETE', payload: props.id})
     }
     //TODO: Add functionality to make deleted item slide up and then disappear
     return (

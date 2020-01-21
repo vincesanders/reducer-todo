@@ -23,7 +23,7 @@ export default (state, action) => {
         case 'REMOVE_TASK':
             return {todoList: state.todoList.filter(task => task.id !== action.payload)};
         case 'REMOVE_COMPLETED':
-            return {todoList: this.state.todoList.filter(task => task.completed === false)};
+            return {todoList: state.todoList.filter(task => task.completed === false)};
         default:
             return state;
     }
