@@ -23,6 +23,7 @@ const initialState = {
 
 function App() {
   const [state, dispatch] = useReducer(todoReducer, initialState);
+
   return (
     <div className='container' >
     <header>

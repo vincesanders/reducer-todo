@@ -9,7 +9,7 @@ export default props => {
         //Add the task when you press enter.
         if (e.which === 13 && e.target.value !== '') {
             e.preventDefault();
-            // dispatch(state, {type: 'ADD_TASK', payload: task});
+            // dispatch({type: 'ADD_TASK', payload: task});
             props.addTask(task);
             setTask('')
         }
