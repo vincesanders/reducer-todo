@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
-// import todoReducer from '../reducers/todoReducer';
 
-export default props => {
-    // const [state, dispatch] = useReducer(todoReducer);
+export default ({ dispatch, ADD_TASK }) => {
     const [task, setTask] = useState('');
 
     const handleSubmit = e => {
         //Add the task when you press enter.
         if (e.which === 13 && e.target.value !== '') {
             e.preventDefault();
-            // dispatch({type: 'ADD_TASK', payload: task});
-            props.addTask(task);
+            dispatch({type: ADD_TASK, payload: task});
             setTask('')
         }
     }
